@@ -1,0 +1,7 @@
+version: "3"
+services:
+  golang:
+    build: .
+    container_name: golang
+    
+
