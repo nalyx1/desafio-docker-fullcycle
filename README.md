@@ -1,7 +1,7 @@
-# desafio-docker-fullcycle
+### Docker image URL
 
-# Docker image URL
 https://hub.docker.com/repository/docker/nalyx/fullcycle/general
 
-# Docker command to run the image
+### Docker command to run the image
+
 docker run nalyx/fullcycle:latest
