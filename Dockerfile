@@ -1,7 +1,16 @@
-FROM golang:1.20
+FROM golang:1.20 AS image
 
 WORKDIR /usr/src/app
 
-COPY . .
+COPY go.mod ./
+RUN go mod download && go mod verify
 
-CMD ["go", "run", "main.go"]
+COPY . .
+RUN go build -v -o /usr/local/bin/app ./...
+
+CMD ["app"]
+
+FROM scratch
+
+COPY --from=image /usr/local/bin/app /
+CMD ["/app"]
